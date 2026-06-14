@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Takahiro | Freelance Web Marketing Portfolio</title>
   <meta name="description" content="Webマーケター・SEOコンサルタント・データアナリストとしての実績、対応領域、使用可能ツール、支援プランをまとめたポートフォリオ。">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -662,6 +664,28 @@
       font-size: 14px;
     }
 
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .footer-brand span {
+      color: var(--bg);
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
     .footer-note strong {
       display: block;
       margin-bottom: 10px;
@@ -705,6 +729,16 @@
       color: var(--bg);
       font-weight: 800;
       word-break: break-all;
+    }
+
+    .footer-copy {
+      grid-column: 1 / -1;
+      margin: 18px 0 0;
+      color: rgba(255, 248, 234, .56);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
     }
 
     .print-panel {
@@ -1776,7 +1810,7 @@
     <nav class="nav" aria-label="主要ナビゲーション">
       <a class="brand" href="#top" aria-label="ページ先頭へ">
         <span class="brand-mark">T</span>
-        <span>Takahiro Portfolio</span>
+        <span>Portfolio</span>
       </a>
       <div class="nav-actions">
         <div class="nav-links" aria-label="ページ内リンク">
@@ -2119,6 +2153,10 @@
         <p>重視しているのは、施策の妥当性を見極めたうえで、「誰と、どう進めるか」まで考えること。目先の数字だけではなく、事業の背景やチームの想いまで理解したうえで、まずは丁寧に聞くことから始めていきます。課題の優先度を見極め、実行と改善を重ねながら、成果につながる打ち手を一緒に作らせていただきたいです！</p>
       </div>
       <div class="footer-note">
+        <div class="footer-brand" aria-label="Takahiro Portfolio">
+          <img src="assets/favicon.png" alt="">
+          <span>Portfolio</span>
+        </div>
         <strong>連絡先</strong>
         <dl class="contact-items">
           <div class="contact-item">
@@ -2131,6 +2169,7 @@
           </div>
         </dl>
       </div>
+      <p class="footer-copy">© 2026 Takahiro. All rights reserved.</p>
     </div>
   </footer>
 
