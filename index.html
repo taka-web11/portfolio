@@ -47,6 +47,8 @@
       --accent-2: #3e7d74;
       --accent-ink: #fffaf0;
       --shadow: 0 18px 48px rgba(54, 42, 24, .12);
+      --card-surface: color-mix(in srgb, var(--paper) 58%, transparent);
+      --card-surface-soft: color-mix(in srgb, var(--paper) 70%, transparent);
     }
 
     [data-theme="ink"] {
@@ -162,6 +164,48 @@
       font-family: var(--font-en);
       font-size: 12px;
       font-weight: 700;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 248, 234, .28);
+      border-radius: 50%;
+      background: rgba(255, 248, 234, .08);
+      color: #fff8ea;
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+
+    .menu-toggle {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .site-header.is-menu-open .menu-toggle span {
+      opacity: 0;
+    }
+
+    .site-header.is-menu-open .menu-toggle::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .site-header.is-menu-open .menu-toggle::after {
+      transform: translateY(-6px) rotate(-45deg);
     }
 
     .theme-control {
@@ -310,7 +354,7 @@
 
     .profile-panel {
       border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--panel) 88%, transparent);
+      background: var(--card-surface);
       box-shadow: var(--shadow);
       padding: 26px;
     }
@@ -348,7 +392,7 @@
     .metric {
       min-height: 116px;
       border: 1px solid var(--line);
-      background: var(--paper);
+      background: var(--card-surface);
       padding: 18px;
     }
 
@@ -392,7 +436,7 @@
 
     .statement {
       border-left: 4px solid var(--accent);
-      background: var(--panel);
+      background: var(--card-surface);
       padding: 26px;
       color: var(--text);
       font-size: 18px;
@@ -417,7 +461,7 @@
     .price-card,
     .tool-group {
       border: 1px solid var(--line);
-      background: var(--panel);
+      background: var(--card-surface);
       box-shadow: var(--shadow);
       padding: 24px;
     }
@@ -488,8 +532,10 @@
       display: grid;
       gap: 1px;
       margin-top: 28px;
-      border: 1px solid var(--line);
-      background: var(--line);
+      border: 1px solid color-mix(in srgb, #557486 24%, var(--line));
+      border-radius: 8px;
+      background: color-mix(in srgb, #557486 16%, var(--line));
+      box-shadow: 0 18px 42px rgba(74, 60, 42, .12);
       overflow: hidden;
     }
 
@@ -501,7 +547,7 @@
     }
 
     .scope-row > div {
-      background: var(--paper);
+      background: color-mix(in srgb, var(--paper) 88%, #f4efe4);
       padding: 16px 18px;
       color: var(--muted);
       font-size: 14px;
@@ -509,8 +555,8 @@
     }
 
     .scope-row.header > div {
-      background: var(--panel-2);
-      color: var(--text);
+      background: color-mix(in srgb, #557486 22%, #eef2f0);
+      color: color-mix(in srgb, #244f64 70%, var(--text));
       font-size: 12px;
       font-weight: 900;
       letter-spacing: .08em;
@@ -710,17 +756,32 @@
       margin: 0;
     }
 
+    .contact-methods {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(170px, .82fr);
+      gap: 14px;
+      padding: 12px 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--bg) 16%, transparent);
+    }
+
     .contact-item {
       display: grid;
-      gap: 4px;
+      gap: 8px;
+      padding: 12px 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--bg) 16%, transparent);
+    }
+
+    .contact-methods .contact-item {
+      padding-top: 0;
+      border-top: 0;
     }
 
     .contact-item dt {
-      color: color-mix(in srgb, var(--bg) 54%, transparent);
+      color: color-mix(in srgb, var(--bg) 58%, transparent);
       font-family: var(--font-en);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 800;
-      letter-spacing: .08em;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
@@ -729,6 +790,98 @@
       color: var(--bg);
       font-weight: 800;
       word-break: break-all;
+    }
+
+    .contact-value {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      max-width: 100%;
+      min-height: 34px;
+      border: 1px solid color-mix(in srgb, var(--bg) 18%, transparent);
+      background: color-mix(in srgb, var(--bg) 7%, transparent);
+      padding: 8px 12px;
+      font-size: 13.5px;
+      line-height: 1.3;
+    }
+
+    button.contact-value {
+      position: relative;
+      color: var(--bg);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    a.contact-value {
+      transition: border-color .18s ease, background-color .18s ease, transform .18s ease;
+    }
+
+    a.contact-value:hover,
+    a.contact-value:focus-visible,
+    button.contact-value:hover,
+    button.contact-value:focus-visible {
+      border-color: color-mix(in srgb, var(--bg) 42%, transparent);
+      background: color-mix(in srgb, var(--bg) 13%, transparent);
+      transform: translateY(-1px);
+    }
+
+    button.contact-value.is-copied {
+      border-color: color-mix(in srgb, var(--bg) 52%, transparent);
+      background: color-mix(in srgb, var(--bg) 18%, transparent);
+    }
+
+    button.contact-value::after {
+      content: attr(data-copy-message);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      transform: translate(-50%, 6px);
+      min-width: max-content;
+      border: 1px solid rgba(255, 248, 234, .32);
+      background: rgba(255, 248, 234, .94);
+      color: #243036;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+      transition: opacity .22s ease, transform .22s ease;
+    }
+
+    button.contact-value::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 5px);
+      transform: translate(-50%, 6px);
+      border: 6px solid transparent;
+      border-top-color: rgba(255, 248, 234, .94);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .22s ease, transform .22s ease;
+    }
+
+    button.contact-value.is-copied::after,
+    button.contact-value.is-copied::before {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .contact-message {
+      padding: 14px 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--bg) 16%, transparent);
+    }
+
+    .contact-message p {
+      margin: 0;
+      color: color-mix(in srgb, var(--bg) 68%, transparent);
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.85;
     }
 
     .footer-copy {
@@ -814,7 +967,58 @@
       }
 
       .nav-links {
+        display: grid;
+        position: absolute;
+        top: calc(100% - 2px);
+        left: 18px;
+        right: 18px;
+        width: auto;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-rows: 44px;
+        gap: 0;
+        align-items: stretch;
+        justify-content: stretch;
+        overflow: hidden;
+        border: 1px solid rgba(255, 248, 234, .2);
+        border-radius: 8px;
+        background:
+          linear-gradient(90deg, rgba(23, 21, 16, .96), rgba(31, 41, 44, .94)),
+          url("assets/wa-modern-image-sp.png") center 18% / cover;
+        box-shadow: 0 22px 48px rgba(0, 0, 0, .28);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px) scale(.985);
+        transform-origin: top center;
+        transition: opacity .24s ease, transform .24s ease, visibility 0s linear .24s;
+      }
+
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        min-height: 44px;
+        padding: 0 8px;
+        border-right: 1px solid rgba(255, 248, 234, .13);
+        border-bottom: 1px solid rgba(255, 248, 234, .13);
+        background: rgba(255, 248, 234, .025);
+        color: #fff8ea;
+        font-size: 11.5px;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .nav-links a::after {
         display: none;
+      }
+
+      .nav-links a:nth-child(3n) {
+        border-right: 0;
+      }
+
+      .nav-links a:nth-last-child(-n + 3) {
+        border-bottom: 0;
       }
 
       .theme-control {
@@ -881,8 +1085,8 @@
       --hero-heading: var(--text);
       --hero-copy-color: color-mix(in srgb, var(--text) 72%, transparent);
       --hero-eyebrow-color: var(--accent-2);
-      --hero-profile-bg: color-mix(in srgb, var(--paper) 72%, transparent);
-      --hero-metric-bg: color-mix(in srgb, #fffaf0 66%, transparent);
+      --hero-profile-bg: var(--card-surface);
+      --hero-metric-bg: var(--card-surface);
       --hero-profile-muted: var(--quiet);
       --hero-profile-line: var(--line-strong);
       background:
@@ -1125,6 +1329,10 @@
       white-space: nowrap;
     }
 
+    .mobile-copy {
+      display: none;
+    }
+
     .desktop-break {
       display: block;
     }
@@ -1299,7 +1507,7 @@
 
     .statement {
       border-left: 4px solid var(--accent-2);
-      background: color-mix(in srgb, var(--paper) 72%, transparent);
+      background: var(--card-surface);
       max-width: 390px;
       padding: 24px 26px;
       font-family: var(--font-serif);
@@ -1310,7 +1518,6 @@
 
     .about-layout .statement {
       border-left-color: color-mix(in srgb, var(--accent-2) 64%, transparent);
-      opacity: .66;
     }
 
     .body-copy {
@@ -1343,7 +1550,7 @@
     .tool-group {
       border-radius: 0;
       border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
-      background: color-mix(in srgb, var(--paper) 72%, transparent);
+      background: var(--card-surface);
       box-shadow: none;
       backdrop-filter: blur(10px);
     }
@@ -1354,6 +1561,7 @@
       flex-direction: column;
       justify-content: center;
       min-height: 190px;
+      background: var(--card-surface);
     }
 
     .card-grid .card::before {
@@ -1417,6 +1625,7 @@
 
     .price-card {
       min-height: 340px;
+      border-radius: 8px;
       border-top: 3px solid color-mix(in srgb, var(--accent-2) 72%, transparent);
     }
 
@@ -1424,13 +1633,13 @@
       border-top-color: rgba(118, 124, 126, .72);
       background:
         linear-gradient(145deg, rgba(118, 124, 126, .09), transparent 58%),
-        color-mix(in srgb, var(--paper) 82%, #eef1f0);
+        var(--card-surface);
     }
 
     .price-card.featured {
       background:
         linear-gradient(135deg, color-mix(in srgb, var(--accent-2) 11%, transparent), transparent 54%),
-        color-mix(in srgb, var(--paper) 80%, transparent);
+        var(--card-surface);
       border-color: color-mix(in srgb, var(--accent-2) 68%, transparent);
       border-top-color: var(--accent);
     }
@@ -1440,7 +1649,7 @@
       border-color: color-mix(in srgb, var(--accent-2) 58%, var(--line));
       background:
         linear-gradient(145deg, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 56%),
-        color-mix(in srgb, var(--paper) 84%, transparent);
+        var(--card-surface);
       transform: translateY(-10px);
     }
 
@@ -1488,7 +1697,7 @@
       border-top-color: #b68a2e;
       background:
         linear-gradient(135deg, rgba(182, 138, 46, .18), transparent 58%),
-        color-mix(in srgb, var(--paper) 86%, transparent);
+        var(--card-surface);
     }
 
     .price-card.premium .price-label,
@@ -1521,18 +1730,18 @@
     .scope-table {
       border: 0;
       margin-top: 58px;
-      background: color-mix(in srgb, #6f8f7d 24%, var(--line));
+      background: color-mix(in srgb, #557486 16%, var(--line));
       box-shadow: none;
     }
 
     .scope-row > div {
-      background: color-mix(in srgb, var(--paper) 84%, #eef3ec);
+      background: color-mix(in srgb, var(--paper) 88%, #f4efe4);
       color: color-mix(in srgb, var(--text) 76%, var(--quiet));
     }
 
     .scope-row.header > div {
-      background: color-mix(in srgb, #6f8f7d 24%, #eef3ec);
-      color: color-mix(in srgb, #446957 76%, var(--text));
+      background: color-mix(in srgb, #557486 22%, #eef2f0);
+      color: color-mix(in srgb, #244f64 70%, var(--text));
     }
 
     .chip {
@@ -1552,17 +1761,46 @@
       color: rgba(255, 248, 234, .78);
     }
 
+    .contact-band h2 {
+      font-size: clamp(32px, 4vw, 48px);
+    }
+
     .contact-band .eyebrow::before {
       height: 2px;
       background: rgba(255, 248, 234, .48);
     }
 
     .footer-note {
-      border-radius: 0;
+      border-radius: 8px;
       border-color: rgba(255, 248, 234, .24);
       color: rgba(255, 248, 234, .74);
       background: rgba(255, 248, 234, .06);
       backdrop-filter: blur(12px);
+    }
+
+    .contact-item {
+      border-top-color: rgba(255, 248, 234, .14);
+    }
+
+    .contact-methods,
+    .contact-message {
+      border-top-color: rgba(255, 248, 234, .14);
+    }
+
+    .contact-message p {
+      color: rgba(255, 248, 234, .72);
+    }
+
+    .contact-value {
+      border-color: rgba(255, 248, 234, .22);
+      background: rgba(255, 248, 234, .08);
+      color: #fff8ea;
+    }
+
+    a.contact-value:hover,
+    a.contact-value:focus-visible {
+      border-color: rgba(255, 248, 234, .46);
+      background: rgba(255, 248, 234, .14);
     }
 
     [data-theme="ink"] body,
@@ -1626,6 +1864,420 @@
 
       .mobile-space {
         display: inline;
+      }
+    }
+
+    @media (max-width: 760px) {
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      body {
+        --card-surface: color-mix(in srgb, var(--paper) 70%, transparent);
+        --card-surface-soft: color-mix(in srgb, var(--paper) 78%, transparent);
+        --hero-profile-bg: var(--card-surface);
+        --hero-metric-bg: var(--card-surface);
+        background:
+          linear-gradient(90deg, rgba(238, 230, 215, .84), rgba(246, 241, 230, .68) 42%, rgba(246, 241, 230, .82)),
+          url("assets/wa-modern-image-sp.png") 42% top / auto 620px repeat-y,
+          var(--bg);
+        background-attachment: scroll;
+      }
+
+      body[data-theme="ink"],
+      body[data-theme="dark"],
+      body[data-theme="mono"] {
+        background-attachment: scroll;
+      }
+
+      .site-header {
+        position: relative;
+        background:
+          linear-gradient(90deg, rgba(23, 21, 16, .94), rgba(31, 41, 44, .86)),
+          url("assets/wa-modern-image-sp.png") center 18% / cover;
+      }
+
+      .nav {
+        align-items: stretch;
+        position: relative;
+        gap: 0;
+        min-height: 74px;
+        padding: 14px 18px;
+      }
+
+      .brand {
+        width: fit-content;
+        min-height: 46px;
+        padding-right: 0;
+        font-size: 17px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .nav-actions {
+        display: block;
+        width: 100%;
+      }
+
+      .nav-links {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-rows: 44px;
+        gap: 0;
+        align-items: stretch;
+        justify-content: stretch;
+      }
+
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        min-height: 44px;
+        padding: 0 8px;
+        border-right: 1px solid rgba(255, 248, 234, .13);
+        border-bottom: 1px solid rgba(255, 248, 234, .13);
+        background: rgba(255, 248, 234, .025);
+        color: #fff8ea;
+        font-size: 11.5px;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .nav-links a:nth-child(3n) {
+        border-right: 0;
+      }
+
+      .nav-links a:nth-last-child(-n + 3) {
+        border-bottom: 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 16px;
+        right: 132px;
+        z-index: 2;
+      }
+
+      .site-header.is-menu-open .nav-links {
+        display: grid;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+        transition-delay: 0s;
+      }
+
+      .theme-control {
+        position: absolute;
+        top: 17px;
+        right: 18px;
+        width: auto;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        border-left: 0;
+        font-size: 0;
+      }
+
+      select {
+        min-width: 106px;
+        padding: 9px 28px 9px 12px;
+        font-size: 12px;
+      }
+
+      .section {
+        padding: 54px 18px;
+      }
+
+      .hero {
+        --hero-overlay: linear-gradient(90deg, rgba(246, 241, 230, .82), rgba(246, 241, 230, .48) 46%, rgba(246, 241, 230, .72));
+        min-height: auto;
+        padding-top: 40px;
+        padding-bottom: 42px;
+        background:
+          var(--hero-overlay),
+          url("assets/wa-modern-image-sp.png") 42% top / auto 620px no-repeat;
+      }
+
+      #about {
+        padding-top: 34px;
+      }
+
+      .hero-grid,
+      .section-head,
+      .about-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .section-inner {
+        max-width: 100%;
+      }
+
+      .eyebrow {
+        margin-bottom: 18px;
+        font-size: 10px;
+        letter-spacing: .16em;
+      }
+
+      .eyebrow::before {
+        width: 38px;
+      }
+
+      h1 {
+        max-width: 100%;
+        margin-bottom: 22px;
+        font-size: clamp(24px, 7vw, 28px);
+        line-height: 1.34;
+        word-break: keep-all;
+        overflow-wrap: normal;
+      }
+
+      .hero-title-line {
+        white-space: normal;
+      }
+
+      .desktop-copy {
+        display: none;
+      }
+
+      .mobile-copy {
+        display: inline;
+      }
+
+      h2 {
+        margin-bottom: 18px;
+        font-size: clamp(34px, 11vw, 46px);
+        line-height: 1.18;
+      }
+
+      h3 {
+        font-size: 17px;
+      }
+
+      .lead,
+      .body-copy,
+      .contact-band p {
+        font-size: 14.5px;
+        line-height: 1.9;
+      }
+
+      .hero-actions {
+        gap: 10px;
+      }
+
+      .button {
+        flex: 1 1 145px;
+        min-height: 44px;
+        padding: 11px 14px;
+        font-size: 13px;
+      }
+
+      .profile-panel {
+        padding: 22px;
+      }
+
+      .profile-name {
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .profile-name strong {
+        font-size: 30px;
+      }
+
+      .metric-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .metric {
+        min-height: 96px;
+        padding: 14px;
+      }
+
+      .metric dd {
+        font-size: 24px;
+      }
+
+      .section-head {
+        margin-bottom: 28px;
+      }
+
+      #tools .section-head {
+        gap: 36px;
+      }
+
+      .section-head::before {
+        display: none;
+      }
+
+      .section-head > p {
+        max-width: none;
+        padding-top: 0;
+      }
+
+      .experience-summary {
+        margin-top: 4px;
+        padding-top: 18px;
+        border-top-width: 2px;
+      }
+
+      .experience-summary .summary-label {
+        display: inline-flex;
+        width: fit-content;
+        margin-top: -29px;
+        margin-bottom: 12px;
+        padding-right: 0;
+        background: transparent;
+      }
+
+      .experience-summary .summary-text,
+      .scope-summary .summary-text {
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .experience-summary .summary-text span {
+        white-space: normal;
+      }
+
+      .statement {
+        max-width: none;
+        background: var(--card-surface);
+        padding: 22px;
+        font-size: 15.5px;
+        line-height: 1.9;
+      }
+
+      #about .about-layout {
+        gap: 18px;
+      }
+
+      .card-grid,
+      .skill-columns,
+      .service-grid,
+      .tools {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .service-grid {
+        gap: 34px;
+      }
+
+      .card,
+      .price-card,
+      .tool-group {
+        background: var(--card-surface);
+        padding: 20px;
+      }
+
+      .price-card.recommended {
+        background:
+          linear-gradient(145deg, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 56%),
+          var(--card-surface);
+      }
+
+      .price-card.premium {
+        background:
+          linear-gradient(135deg, rgba(182, 138, 46, .13), transparent 58%),
+          var(--card-surface);
+      }
+
+      .price-card.recommended {
+        margin-top: 8px;
+        transform: none;
+      }
+
+      .price-card.recommended:hover,
+      .price-card.recommended:focus-visible,
+      .price-card.recommended.is-active {
+        transform: none;
+      }
+
+      .result-value,
+      .price {
+        font-size: 26px;
+      }
+
+      .skill-row span {
+        font-size: 12.5px;
+      }
+
+      .scope-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid color-mix(in srgb, #557486 34%, transparent);
+        border-radius: 8px;
+        background: color-mix(in srgb, #557486 18%, var(--line));
+        box-shadow: 0 18px 42px rgba(74, 60, 42, .14);
+      }
+
+      .scope-row {
+        min-width: 690px;
+        grid-template-columns: 132px 165px 180px 210px;
+      }
+
+      .scope-row > div {
+        min-height: 76px;
+        padding: 16px 14px;
+        font-size: 12.5px;
+        line-height: 1.75;
+      }
+
+      .scope-row > div:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        background: color-mix(in srgb, #557486 12%, var(--card-surface-soft));
+        border-right: 1px solid color-mix(in srgb, #557486 28%, transparent);
+      }
+
+      .scope-row.header > div {
+        min-height: 52px;
+        background: color-mix(in srgb, #557486 22%, #eef2f0);
+        color: color-mix(in srgb, #244f64 70%, var(--text));
+      }
+
+      .scope-row.header > div:first-child {
+        z-index: 3;
+        background: color-mix(in srgb, #557486 24%, #eef2f0);
+      }
+
+      .contact-band {
+        padding-top: 68px;
+        padding-bottom: 38px;
+      }
+
+      .footer-note {
+        padding: 22px;
+      }
+
+      .contact-methods {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand span {
+        font-size: 17px;
+      }
+
+      .footer-copy {
+        margin-top: 8px;
+        font-size: 11px;
+        line-height: 1.6;
       }
     }
 
@@ -1813,13 +2465,17 @@
         <span>Portfolio</span>
       </a>
       <div class="nav-actions">
-        <div class="nav-links" aria-label="ページ内リンク">
+        <div class="nav-links" id="navLinks" aria-label="ページ内リンク">
           <a href="#about">About</a>
           <a href="#results">Results</a>
           <a href="#skills">Skills</a>
           <a href="#tools">Tools</a>
           <a href="#services">Plans</a>
+          <a href="#contact">Contact</a>
         </div>
+        <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="navLinks">
+          <span></span>
+        </button>
         <label class="theme-control" for="themeSelect">
           Palette
           <select id="themeSelect" aria-label="配色テーマを選択">
@@ -1839,8 +2495,8 @@
         <div>
           <p class="eyebrow">Web Marketing / SEO / Data</p>
           <h1>
-            <span class="hero-title-line">戦略立案から改善運用まで</span>
-            <span class="hero-title-line">SEO・データ分析で伴走する</span>
+            <span class="hero-title-line"><span class="desktop-copy">戦略立案から改善運用まで</span><span class="mobile-copy">戦略立案から改善運用まで</span></span>
+            <span class="hero-title-line"><span class="desktop-copy">SEO・データ分析で伴走する</span><span class="mobile-copy">SEO・データ分析で伴走する</span></span>
             <span class="hero-title-line">Webマーケター</span>
           </h1>
           <p class="lead hero-copy">Webマーケティング、SEO、広告・メディア運用、データ分析、ディレクター・PMまでを横断し、戦略の整理～提案、改善運用・データ分析まで伴走します。机上の提案で終わらせず、現場で動く施策に落とし込み、KGI・KPI改善につながるPDCAを回すことを重視しております。</p>
@@ -1990,7 +2646,7 @@
           </article>
           <article class="card">
             <span class="card-number">03</span>
-            <h3>PM / 組織統括</h3>
+            <h3>PM / ディレクション</h3>
             <div class="skill-row"><span>要件定義 / ブリッジング <b>90</b></span><div class="bar"><i style="width:90%"></i></div></div>
             <div class="skill-row"><span>進行管理 / 課題解決 <b>85</b></span><div class="bar"><i style="width:85%"></i></div></div>
             <div class="skill-row"><span>チームディレクション <b>82</b></span><div class="bar"><i style="width:82%"></i></div></div>
@@ -2005,7 +2661,7 @@
         <div class="section-head">
           <div>
             <p class="eyebrow">Tools</p>
-            <h2>使用可能ツール・スキル</h2>
+            <h2><span class="desktop-copy">使用可能ツール・スキル</span><span class="mobile-copy">使用可能ツール・<br>スキル</span></h2>
           </div>
           <p class="experience-summary scope-summary">
             <span class="summary-label">Summary</span>
@@ -2071,7 +2727,7 @@
         </div>
         <div class="service-grid">
           <article class="price-card" tabindex="0">
-            <span class="price-label">Light</span>
+            <span class="price-label">Basic Plan</span>
             <h3>ライト相談プラン</h3>
             <div class="price">月4〜6万円</div>
             <p>Webマーケ、SEO施策、GA4 / GSC、広告運用、AI活用などの方向性を相談できるライトな壁打ちプランです。</p>
@@ -2083,7 +2739,7 @@
             <p class="price-note">※可能な限り早めの返信を心がけておりますが、状況により翌営業日以降のご返信となる場合があります。</p>
           </article>
           <article class="price-card recommended" tabindex="0">
-            <span class="price-label">Advisor</span>
+            <span class="price-label">Support Plan</span>
             <h3>マーケティング顧問プラン</h3>
             <div class="price">月8〜15万円</div>
             <p>より詳細な改善施策提案や優先度整理から、SEO・広告運用・データ分析まわりのレビュー／フィードバックまで対応する顧問プランです。</p>
@@ -2095,7 +2751,7 @@
             <p class="price-note">※可能な限り早めの返信を心がけておりますが、状況により翌営業日以降のご返信となる場合があります。</p>
           </article>
           <article class="price-card featured premium" tabindex="0">
-            <span class="price-label">Marketing PM</span>
+            <span class="price-label">Complete Plan</span>
             <h3>マーケティングPMプラン</h3>
             <div class="price">月32〜42万円</div>
             <p>サイト・データ分析を起点に、SEO施策提案、広告運用、GTM設計、制作ディレクション、進行管理まで一貫して支援します。戦略設計だけでなく、実務側にも入りながら、改善施策の提案～実行まで伴走します。</p>
@@ -2111,9 +2767,9 @@
         <div class="scope-table" aria-label="支援範囲の比較">
           <div class="scope-row header">
             <div>Scope</div>
-            <div>Light</div>
-            <div>Advisor</div>
-            <div>Marketing PM</div>
+            <div>Basic Plan</div>
+            <div>Support Plan</div>
+            <div>Complete Plan</div>
           </div>
           <div class="scope-row">
             <div><strong>支援スタイル</strong></div>
@@ -2145,11 +2801,11 @@
 
       </main>
 
-  <footer class="section contact-band">
+  <footer class="section contact-band" id="contact">
     <div class="section-inner contact-layout">
       <div>
         <p class="eyebrow">Contact</p>
-        <h2>課題整理からぜひご相談ください！</h2>
+        <h2>課題整理から<br>ぜひご相談ください！</h2>
         <p>重視しているのは、施策の妥当性を見極めたうえで、「誰と、どう進めるか」まで考えること。目先の数字だけではなく、事業の背景やチームの想いまで理解したうえで、まずは丁寧に聞くことから始めていきます。課題の優先度を見極め、実行と改善を重ねながら、成果につながる打ち手を一緒に作らせていただきたいです！</p>
       </div>
       <div class="footer-note">
@@ -2159,13 +2815,18 @@
         </div>
         <strong>連絡先</strong>
         <dl class="contact-items">
-          <div class="contact-item">
-            <dt>Mail</dt>
-            <dd><a href="mailto:taka.work.biz11@gmail.com">taka.work.biz11@gmail.com</a></dd>
+          <div class="contact-methods">
+            <div class="contact-item">
+              <dt>Mail</dt>
+              <dd><a class="contact-value" href="mailto:taka.work.biz11@gmail.com">taka.work.biz11@gmail.com</a></dd>
+            </div>
+            <div class="contact-item">
+              <dt>Chatwork ID</dt>
+              <dd><button class="contact-value copy-button" type="button" data-copy-value="taka_work_biz11" data-copy-message="コピーしました！" aria-label="Chatwork IDをコピー">taka_work_biz11</button></dd>
+            </div>
           </div>
-          <div class="contact-item">
-            <dt>Chatwork ID</dt>
-            <dd>taka_work_biz11</dd>
+          <div class="contact-message">
+            <p>まずは簡単な内容で大丈夫です！<br>サイト状況やお悩み、相談したい内容をお送りください。<br>内容を確認のうえ、対応範囲や進め方を提案させていただきます。</p>
           </div>
         </dl>
       </div>
@@ -2209,6 +2870,21 @@
 
     const header = document.querySelector(".site-header");
     const aboutSection = document.querySelector("#about");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector("#navLinks");
+
+    const closeMenu = () => {
+      header?.classList.remove("is-menu-open");
+      menuToggle?.setAttribute("aria-expanded", "false");
+      menuToggle?.setAttribute("aria-label", "メニューを開く");
+    };
+
+    menuToggle?.addEventListener("click", () => {
+      if (!header) return;
+      const isOpen = header.classList.toggle("is-menu-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
+    });
 
     const updateHeaderStickiness = () => {
       if (!header || !aboutSection) return;
@@ -2258,6 +2934,47 @@
 
         animateScrollTo(Math.max(targetPosition, 0));
         history.pushState(null, "", targetId);
+        closeMenu();
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!header?.classList.contains("is-menu-open")) return;
+      if (header.contains(event.target)) return;
+      closeMenu();
+    });
+
+    const copyText = async (text) => {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    };
+
+    document.querySelectorAll("[data-copy-value]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copyValue = button.getAttribute("data-copy-value");
+        if (!copyValue) return;
+
+        try {
+          await copyText(copyValue);
+          button.classList.add("is-copied");
+          window.setTimeout(() => {
+            button.classList.remove("is-copied");
+          }, 1400);
+        } catch {
+          button.classList.remove("is-copied");
+        }
       });
     });
 
