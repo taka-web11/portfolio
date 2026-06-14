@@ -53,6 +53,7 @@
     }
 
     [data-theme="ink"] {
+      color-scheme: dark;
       --bg: #0b1114;
       --paper: #10191d;
       --panel: #152126;
@@ -66,6 +67,27 @@
       --accent-2: #d8b86f;
       --accent-ink: #0b1114;
       --shadow: 0 22px 60px rgba(0, 0, 0, .34);
+      --card-surface: color-mix(in srgb, var(--paper) 84%, transparent);
+      --card-surface-soft: color-mix(in srgb, var(--paper) 92%, transparent);
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #11110f;
+      --paper: #181815;
+      --panel: #20201b;
+      --panel-2: #25241e;
+      --text: #f4f0e6;
+      --muted: #c9c0b2;
+      --quiet: #9c9386;
+      --line: rgba(244, 240, 230, .16);
+      --line-strong: rgba(244, 240, 230, .34);
+      --accent: #d7b46a;
+      --accent-2: #8bb6a6;
+      --accent-ink: #11110f;
+      --shadow: 0 22px 60px rgba(0, 0, 0, .34);
+      --card-surface: color-mix(in srgb, var(--paper) 84%, transparent);
+      --card-surface-soft: color-mix(in srgb, var(--paper) 92%, transparent);
     }
 
     [data-theme="mono"] {
@@ -1841,6 +1863,38 @@
         var(--bg);
     }
 
+    body[data-theme="ink"] .scope-row > div,
+    body[data-theme="dark"] .scope-row > div {
+      background: color-mix(in srgb, var(--paper) 88%, #273238);
+      color: var(--muted);
+    }
+
+    body[data-theme="ink"] .scope-row.header > div,
+    body[data-theme="dark"] .scope-row.header > div {
+      background: color-mix(in srgb, var(--accent-2) 24%, var(--panel));
+      color: var(--text);
+    }
+
+    body[data-theme="ink"] .chip,
+    body[data-theme="dark"] .chip {
+      border-color: color-mix(in srgb, var(--text) 18%, transparent);
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      color: var(--muted);
+    }
+
+    body[data-theme="ink"] .price-card.premium .price-label,
+    body[data-theme="ink"] .price-card.premium .price,
+    body[data-theme="dark"] .price-card.premium .price-label,
+    body[data-theme="dark"] .price-card.premium .price {
+      color: var(--accent-2);
+    }
+
+    body[data-theme="ink"] select option,
+    body[data-theme="dark"] select option {
+      background: #171510;
+      color: #fff8ea;
+    }
+
     body[data-theme="mono"] {
       background:
         linear-gradient(90deg, rgba(247, 247, 244, .94), rgba(247, 247, 244, .78)),
@@ -1896,6 +1950,20 @@
       body[data-theme="dark"],
       body[data-theme="mono"] {
         background-attachment: scroll;
+      }
+
+      body[data-theme="ink"] {
+        background:
+          linear-gradient(90deg, rgba(10, 17, 20, .9), rgba(10, 17, 20, .74) 42%, rgba(10, 17, 20, .9)),
+          url("assets/wa-modern-image-sp.png") 42% top / auto 620px repeat-y,
+          var(--bg);
+      }
+
+      body[data-theme="dark"] {
+        background:
+          linear-gradient(90deg, rgba(16, 16, 14, .9), rgba(16, 16, 14, .74) 42%, rgba(16, 16, 14, .9)),
+          url("assets/wa-modern-image-sp.png") 42% top / auto 620px repeat-y,
+          var(--bg);
       }
 
       .site-header {
@@ -2016,6 +2084,14 @@
           url("assets/wa-modern-image-sp.png") 42% top / auto 620px no-repeat;
       }
 
+      body[data-theme="ink"] .hero {
+        --hero-overlay: linear-gradient(90deg, rgba(10, 17, 20, .88), rgba(10, 17, 20, .66) 46%, rgba(10, 17, 20, .86));
+      }
+
+      body[data-theme="dark"] .hero {
+        --hero-overlay: linear-gradient(90deg, rgba(16, 16, 14, .88), rgba(16, 16, 14, .66) 46%, rgba(16, 16, 14, .86));
+      }
+
       #about {
         padding-top: 34px;
       }
@@ -2085,7 +2161,7 @@
       }
 
       .button {
-        flex: 1 1 145px;
+        flex: 1 1 112px;
         min-height: 44px;
         padding: 11px 14px;
         font-size: 13px;
@@ -2115,7 +2191,7 @@
       }
 
       .metric dd {
-        font-size: 24px;
+        font-size: 22px;
       }
 
       .section-head {
@@ -2178,6 +2254,35 @@
       .tools {
         grid-template-columns: 1fr;
         gap: 16px;
+      }
+
+      .card-grid {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .card-grid .card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+      }
+
+      #results .card {
+        padding-right: 22px;
+        padding-left: 22px;
+      }
+
+      #results .result-value {
+        max-width: 100%;
+        font-size: clamp(23px, 7.2vw, 26px);
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
+      #results .card p {
+        white-space: normal;
+        overflow-wrap: anywhere;
       }
 
       .service-grid {
@@ -2249,7 +2354,7 @@
         position: sticky;
         left: 0;
         z-index: 2;
-        background: color-mix(in srgb, #557486 12%, var(--card-surface-soft));
+        background: color-mix(in srgb, #557486 12%, #eef2f0);
         border-right: 1px solid color-mix(in srgb, #557486 28%, transparent);
       }
 
@@ -2502,14 +2607,15 @@
         <div>
           <p class="eyebrow">Web Marketing / SEO / Data</p>
           <h1>
-            <span class="hero-title-line"><span class="desktop-copy">戦略立案から改善運用まで</span><span class="mobile-copy">戦略立案から改善運用まで</span></span>
-            <span class="hero-title-line"><span class="desktop-copy">SEO・データ分析で伴走する</span><span class="mobile-copy">SEO・データ分析で伴走する</span></span>
+            <span class="hero-title-line">戦略立案から改善運用まで</span>
+            <span class="hero-title-line">SEO・データ分析で伴走する</span>
             <span class="hero-title-line">Webマーケター</span>
           </h1>
           <p class="lead hero-copy">Webマーケティング、SEO、広告・メディア運用、データ分析、ディレクター・PMまでを横断し、戦略の整理～提案、改善運用・データ分析まで伴走します。机上の提案で終わらせず、現場で動く施策に落とし込み、KGI・KPI改善につながるPDCAを回すことを重視しております。</p>
           <div class="hero-actions">
-            <a class="button secondary" href="#results">実績を見る</a>
-            <a class="button primary" href="#services">料金目安を見る</a>
+            <a class="button secondary" href="#results">実績・成果</a>
+            <a class="button primary" href="#services">料金・プラン</a>
+            <a class="button secondary" href="#contact">連絡先</a>
           </div>
         </div>
 
