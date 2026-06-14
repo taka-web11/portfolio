@@ -776,6 +776,10 @@
       border-top: 0;
     }
 
+    .contact-methods .contact-item--wide {
+      grid-column: 1 / -1;
+    }
+
     .contact-item dt {
       color: color-mix(in srgb, var(--bg) 58%, transparent);
       font-family: var(--font-en);
@@ -804,6 +808,8 @@
       padding: 8px 12px;
       font-size: 13.5px;
       line-height: 1.3;
+      overflow-wrap: anywhere;
+      text-align: left;
     }
 
     button.contact-value {
@@ -2823,6 +2829,10 @@
             <div class="contact-item">
               <dt>Chatwork ID</dt>
               <dd><button class="contact-value copy-button" type="button" data-copy-value="taka_work_biz11" data-copy-message="コピーしました！" aria-label="Chatwork IDをコピー">taka_work_biz11</button></dd>
+            </div>
+            <div class="contact-item contact-item--wide">
+              <dt>Site URL</dt>
+              <dd><button class="contact-value copy-button" type="button" data-copy-value="https://taka-web11.github.io/portfolio/" data-copy-message="コピーしました！" aria-label="サイトURLをコピー">https://taka-web11.github.io/portfolio/</button></dd>
             </div>
           </div>
           <div class="contact-message">
