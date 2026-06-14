@@ -1,0 +1,2231 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Takahiro | Freelance Web Marketing Portfolio</title>
+  <meta name="description" content="Webマーケター・SEOコンサルタント・データアナリストとしての実績、対応領域、使用可能ツール、支援プランをまとめたポートフォリオ。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #11110f;
+      --paper: #181815;
+      --panel: #20201b;
+      --panel-2: #25241e;
+      --text: #f4f0e6;
+      --muted: #b9b1a4;
+      --quiet: #81796d;
+      --line: rgba(244, 240, 230, .15);
+      --line-strong: rgba(244, 240, 230, .32);
+      --accent: #d7b46a;
+      --accent-2: #8bb6a6;
+      --accent-ink: #11110f;
+      --shadow: 0 22px 60px rgba(0, 0, 0, .28);
+      --radius: 8px;
+      --measure: 1120px;
+      --font-ja: "Zen Kaku Gothic New", "Yu Gothic", "YuGothic", "Hiragino Sans", "Meiryo", sans-serif;
+      --font-en: "Inter", Arial, sans-serif;
+    }
+
+    [data-theme="paper"] {
+      color-scheme: light;
+      --bg: #f5f1e8;
+      --paper: #fffaf0;
+      --panel: #fffdf7;
+      --panel-2: #ebe5d8;
+      --text: #1d1c19;
+      --muted: #5f594e;
+      --quiet: #8a8173;
+      --line: rgba(29, 28, 25, .14);
+      --line-strong: rgba(29, 28, 25, .3);
+      --accent: #946f33;
+      --accent-2: #3e7d74;
+      --accent-ink: #fffaf0;
+      --shadow: 0 18px 48px rgba(54, 42, 24, .12);
+    }
+
+    [data-theme="ink"] {
+      --bg: #0b1114;
+      --paper: #10191d;
+      --panel: #152126;
+      --panel-2: #1b2b31;
+      --text: #eef5f2;
+      --muted: #b7c3be;
+      --quiet: #7e8f88;
+      --line: rgba(238, 245, 242, .14);
+      --line-strong: rgba(238, 245, 242, .3);
+      --accent: #80c7b7;
+      --accent-2: #d8b86f;
+      --accent-ink: #0b1114;
+      --shadow: 0 22px 60px rgba(0, 0, 0, .34);
+    }
+
+    [data-theme="mono"] {
+      color-scheme: light;
+      --bg: #f7f7f4;
+      --paper: #ffffff;
+      --panel: #ffffff;
+      --panel-2: #ededeb;
+      --text: #171717;
+      --muted: #595959;
+      --quiet: #8a8a8a;
+      --line: rgba(23, 23, 23, .14);
+      --line-strong: rgba(23, 23, 23, .3);
+      --accent: #202020;
+      --accent-2: #6d6d6d;
+      --accent-ink: #ffffff;
+      --shadow: 0 18px 42px rgba(0, 0, 0, .1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 16%, transparent), transparent 34rem),
+        linear-gradient(135deg, color-mix(in srgb, var(--paper) 82%, transparent) 0 1px, transparent 1px 22px),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.8;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      max-width: var(--measure);
+      margin: 0 auto;
+      padding: 16px 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line-strong);
+      background: var(--panel);
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .theme-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 4px;
+      padding-left: 24px;
+      border-left: 1px solid var(--line);
+      color: var(--quiet);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    select {
+      max-width: 100%;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--text);
+      font: 700 12px/1 var(--font-en);
+      padding: 9px 30px 9px 11px;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .section {
+      border-bottom: 1px solid var(--line);
+      padding: 86px 24px;
+    }
+
+    .section-inner {
+      max-width: var(--measure);
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: calc(100svh - 67px);
+      display: grid;
+      align-items: center;
+      padding-top: 52px;
+      padding-bottom: 52px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+      gap: 56px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 28px;
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: 1.08;
+      font-weight: 900;
+    }
+
+    h2 {
+      margin-bottom: 26px;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.18;
+      font-weight: 900;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 800;
+    }
+
+    .lead {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 500;
+    }
+
+    .hero-copy {
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      padding: 12px 18px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .button.primary {
+      border-color: transparent;
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .profile-panel {
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 88%, transparent);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .profile-name {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+
+    .profile-name strong {
+      font-family: var(--font-en);
+      font-size: 31px;
+      line-height: 1;
+    }
+
+    .profile-name span {
+      color: var(--quiet);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .metric-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .metric {
+      min-height: 116px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      padding: 18px;
+    }
+
+    .metric dt {
+      color: var(--quiet);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .metric dd {
+      margin: 8px 0 0;
+      font-family: var(--font-en);
+      font-size: 26px;
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(260px, .85fr) minmax(0, 1.15fr);
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 44px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .section-head > p {
+      padding-top: 32px;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(260px, .85fr) minmax(0, 1.15fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .statement {
+      border-left: 4px solid var(--accent);
+      background: var(--panel);
+      padding: 26px;
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .body-copy {
+      color: var(--muted);
+    }
+
+    .body-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card,
+    .price-card,
+    .tool-group {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .card-number {
+      display: block;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .result-value {
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .card p,
+    .price-card p,
+    .tool-group p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .skill-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-row {
+      margin-top: 20px;
+    }
+
+    .skill-row span {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .bar {
+      height: 8px;
+      margin-top: 8px;
+      background: var(--panel-2);
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .scope-table {
+      display: grid;
+      gap: 1px;
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      overflow: hidden;
+    }
+
+    .scope-row {
+      display: grid;
+      grid-template-columns: 1.1fr .8fr .8fr 1fr;
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .scope-row > div {
+      background: var(--paper);
+      padding: 16px 18px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .scope-row.header > div {
+      background: var(--panel-2);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .scope-row strong {
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .price-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 318px;
+      cursor: pointer;
+      outline: 0;
+      transition: transform .18s ease, border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+    }
+
+    .price-card.featured {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 11%, var(--panel));
+    }
+
+    .price-card:hover,
+    .price-card:focus-visible,
+    .price-card.is-active {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 14%, var(--panel));
+      box-shadow: 0 26px 70px rgba(0, 0, 0, .34);
+    }
+
+    .price-card.is-active {
+      box-shadow: 0 0 0 1px var(--accent), 0 26px 70px rgba(0, 0, 0, .34);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .price-card {
+        transition: none;
+      }
+
+      .price-card:hover,
+      .price-card:focus-visible,
+      .price-card.is-active {
+        transform: none;
+      }
+    }
+
+    .price-label {
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .price {
+      margin: 12px 0 14px;
+      font-size: 27px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
+
+    .price small {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .price-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .price-list li {
+      display: grid;
+      grid-template-columns: 12px 1fr;
+      gap: 9px;
+    }
+
+    .price-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin-top: 11px;
+      background: var(--accent);
+    }
+
+    .price-card .price-note {
+      margin: 14px 0 0;
+      color: color-mix(in srgb, var(--accent-2) 52%, var(--quiet));
+      font-size: 12.8px;
+      line-height: 1.6;
+      white-space: normal;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--muted);
+      border-radius: 5px;
+      padding: 7px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .contact-band {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .contact-band .eyebrow,
+    .contact-band p {
+      color: color-mix(in srgb, var(--bg) 70%, transparent);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .footer-note {
+      border: 1px solid color-mix(in srgb, var(--bg) 22%, transparent);
+      padding: 22px;
+      color: color-mix(in srgb, var(--bg) 70%, transparent);
+      font-size: 14px;
+    }
+
+    .footer-note strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--bg);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .footer-note a {
+      color: var(--bg);
+      font-weight: 800;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-items {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+    }
+
+    .contact-item {
+      display: grid;
+      gap: 4px;
+    }
+
+    .contact-item dt {
+      color: color-mix(in srgb, var(--bg) 54%, transparent);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .contact-item dd {
+      margin: 0;
+      color: var(--bg);
+      font-weight: 800;
+      word-break: break-all;
+    }
+
+    .print-panel {
+      display: grid;
+      gap: 14px;
+    }
+
+    .print-panel p {
+      margin: 0;
+    }
+
+    .print-button {
+      justify-self: start;
+      min-height: 42px;
+      border: 1px solid rgba(255, 248, 234, .34);
+      border-radius: 999px;
+      background: #fff8ea;
+      color: #171510;
+      padding: 11px 20px;
+      font: 800 13px/1.2 var(--font-ja);
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .16);
+    }
+
+    .print-button:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-actions,
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .theme-control {
+        margin-left: auto;
+      }
+
+      .hero-grid,
+      .section-head,
+      .about-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head > p {
+        padding-top: 0;
+      }
+
+      .card-grid,
+      .skill-columns,
+      .service-grid,
+      .scope-row,
+      .tools {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 64px 18px;
+      }
+
+      .nav {
+        padding: 14px 18px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .theme-control {
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      .profile-panel,
+      .card,
+      .price-card,
+      .tool-group {
+        padding: 20px;
+      }
+
+      .metric-list,
+      .card-grid,
+      .skill-columns,
+      .service-grid,
+      .scope-row,
+      .tools {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-name {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /* Wa-modern redesign layer */
+    :root {
+      --font-serif: "Noto Serif JP", "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+    }
+
+    [data-theme="paper"] {
+      --bg: #eee6d7;
+      --paper: rgba(255, 251, 240, .86);
+      --panel: rgba(255, 250, 238, .76);
+      --panel-2: rgba(225, 216, 198, .58);
+      --text: #171510;
+      --muted: #4e493f;
+      --quiet: #83796a;
+      --line: rgba(31, 28, 22, .16);
+      --line-strong: rgba(31, 28, 22, .36);
+      --accent: #9f3327;
+      --accent-2: #1f5c72;
+      --accent-ink: #fff8ea;
+      --shadow: 0 28px 80px rgba(82, 58, 31, .12);
+    }
+
+    body {
+      --hero-overlay: linear-gradient(90deg, rgba(246, 241, 230, .88), rgba(246, 241, 230, .38) 48%, rgba(246, 241, 230, .72));
+      --hero-heading: var(--text);
+      --hero-copy-color: color-mix(in srgb, var(--text) 72%, transparent);
+      --hero-eyebrow-color: var(--accent-2);
+      --hero-profile-bg: color-mix(in srgb, var(--paper) 72%, transparent);
+      --hero-metric-bg: color-mix(in srgb, #fffaf0 66%, transparent);
+      --hero-profile-muted: var(--quiet);
+      --hero-profile-line: var(--line-strong);
+      background:
+        linear-gradient(90deg, rgba(238, 230, 215, .88), rgba(246, 241, 230, .72) 38%, rgba(246, 241, 230, .88)),
+        url("assets/suminagashi-washi.png") center top / cover fixed,
+        var(--bg);
+      font-family: var(--font-ja);
+    }
+
+    .site-header,
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .site-header {
+      border-bottom: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 50;
+      background:
+        linear-gradient(90deg, rgba(23, 21, 16, .94), rgba(31, 41, 44, .84)),
+        url("assets/suminagashi-washi.png") center 18% / cover;
+      color: #fff8ea;
+      box-shadow: 0 1px 0 rgba(255, 248, 234, .12);
+      backdrop-filter: blur(14px) saturate(1.1);
+    }
+
+    .site-header.is-stuck {
+      position: fixed;
+      animation: headerDrop .2s ease-out;
+    }
+
+    @keyframes headerDrop {
+      from {
+        transform: translateY(-100%);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .nav {
+      max-width: 1180px;
+      padding: 18px 30px;
+    }
+
+    .brand {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      letter-spacing: .08em;
+      color: #fff8ea;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border-color: color-mix(in srgb, var(--accent) 42%, transparent);
+      background:
+        radial-gradient(circle at 40% 42%, var(--accent) 0 28%, transparent 31%),
+        radial-gradient(circle at 58% 56%, var(--accent-2) 0 25%, transparent 29%),
+        color-mix(in srgb, var(--paper) 80%, transparent);
+      color: transparent;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .34);
+    }
+
+    .nav-links {
+      gap: 22px;
+      color: rgba(255, 248, 234, .72);
+      font-size: 11px;
+      letter-spacing: .05em;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #fff8ea;
+      transition: width .18s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    select {
+      border-radius: 999px;
+      border-color: rgba(255, 248, 234, .28);
+      background: rgba(255, 248, 234, .1);
+      color: #fff8ea;
+    }
+
+    .theme-control {
+      border-left-color: rgba(255, 248, 234, .18);
+      color: rgba(255, 248, 234, .62);
+    }
+
+    select option {
+      background: #171510;
+      color: #fff8ea;
+    }
+
+    .section {
+      position: relative;
+      border-bottom: 0;
+      padding: 94px 32px;
+    }
+
+    .section:not(.hero) + .section::before {
+      content: "";
+      position: absolute;
+      top: -9px;
+      left: 0;
+      right: 0;
+      height: 18px;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 18% 50%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 56%),
+        radial-gradient(ellipse at 74% 48%, color-mix(in srgb, var(--accent-2) 11%, transparent), transparent 60%),
+        linear-gradient(
+          to right,
+          transparent 4%,
+          color-mix(in srgb, var(--text) 5%, transparent) 24%,
+          color-mix(in srgb, var(--accent) 8%, transparent) 48%,
+          color-mix(in srgb, var(--text) 4%, transparent) 76%,
+          transparent 96%
+        );
+      filter: blur(4px);
+      opacity: .42;
+      transform: scaleY(.72);
+    }
+
+    .section-inner {
+      max-width: 1120px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 70px);
+      background:
+        var(--hero-overlay),
+        url("assets/suminagashi-washi.png") center top / cover fixed;
+      box-shadow: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 120px;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          color-mix(in srgb, var(--bg) 24%, transparent) 58%,
+          color-mix(in srgb, var(--bg) 38%, transparent)
+        );
+      opacity: .62;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -7px;
+      height: 18px;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 18% 50%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 56%),
+        radial-gradient(ellipse at 74% 48%, color-mix(in srgb, var(--accent-2) 11%, transparent), transparent 60%),
+        linear-gradient(
+          to right,
+          transparent 4%,
+          color-mix(in srgb, var(--text) 5%, transparent) 24%,
+          color-mix(in srgb, var(--accent) 8%, transparent) 48%,
+          color-mix(in srgb, var(--text) 4%, transparent) 76%,
+          transparent 96%
+        );
+      filter: blur(4px);
+      opacity: .42;
+      transform: scaleY(.72);
+    }
+
+    #about {
+      padding-top: 118px;
+    }
+
+    .hero-grid {
+      grid-template-columns: minmax(0, .95fr) minmax(320px, .72fr);
+      align-items: center;
+      gap: 72px;
+    }
+
+    .eyebrow {
+      color: var(--hero-eyebrow-color);
+      font-size: 11px;
+      letter-spacing: .18em;
+    }
+
+    .eyebrow::before {
+      width: 56px;
+      background: color-mix(in srgb, var(--text) 58%, transparent);
+    }
+
+    h1,
+    h2 {
+      font-family: var(--font-serif);
+      letter-spacing: .02em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      color: var(--hero-heading);
+      max-width: 760px;
+      margin-bottom: 28px;
+      font-size: clamp(31px, 3.25vw, 42px);
+      line-height: 1.32;
+      font-weight: 700;
+    }
+
+    .hero-title-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .desktop-break {
+      display: block;
+    }
+
+    .mobile-space {
+      display: none;
+    }
+
+    h2 {
+      font-size: clamp(34px, 4.8vw, 56px);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-family: var(--font-serif);
+      font-weight: 700;
+    }
+
+    .lead {
+      max-width: 650px;
+      color: var(--hero-copy-color);
+      font-size: 17px;
+      line-height: 2.05;
+    }
+
+    .button {
+      border-radius: 999px;
+      min-height: 42px;
+      padding: 11px 20px;
+      font-size: 13px;
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .button.secondary {
+      border-color: color-mix(in srgb, var(--text) 46%, transparent);
+      background: color-mix(in srgb, var(--paper) 64%, transparent);
+      color: var(--text);
+      box-shadow: 0 8px 20px rgba(82, 58, 31, .08);
+      backdrop-filter: blur(8px);
+    }
+
+    .profile-panel {
+      position: relative;
+      border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
+      background: var(--hero-profile-bg);
+      box-shadow: var(--shadow);
+      padding: 30px 28px 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .profile-panel::after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      height: 3px;
+      background: color-mix(in srgb, var(--accent-2) 64%, transparent);
+      opacity: .66;
+    }
+
+    .profile-name strong {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 700;
+    }
+
+    .hero .profile-name span,
+    .hero .metric dt {
+      color: var(--hero-profile-muted);
+    }
+
+    .metric {
+      min-height: 112px;
+      border: 1px solid var(--hero-profile-line);
+      background: var(--hero-metric-bg);
+      padding: 16px 16px 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero .metric dt {
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .metric dd,
+    .result-value,
+    .price {
+      font-family: var(--font-serif);
+    }
+
+    .section-head {
+      position: relative;
+      grid-template-columns: minmax(240px, .72fr) minmax(0, 1fr);
+      gap: 80px;
+      margin-bottom: 52px;
+    }
+
+    .section-head::before {
+      content: "";
+      position: absolute;
+      left: calc(41.9% - 40px);
+      top: 18px;
+      width: 1px;
+      height: calc(100% - 10px);
+      background: linear-gradient(color-mix(in srgb, var(--accent-2) 70%, transparent), transparent);
+      opacity: .36;
+    }
+
+    .section-head > p {
+      max-width: 650px;
+      padding-top: 34px;
+      line-height: 2;
+    }
+
+    #about .section-head > p {
+      color: color-mix(in srgb, var(--text) 72%, transparent);
+      font-weight: 700;
+      letter-spacing: .01em;
+    }
+
+    .experience-summary {
+      display: grid;
+      gap: 10px;
+      align-items: start;
+      border-top: 3px solid color-mix(in srgb, var(--accent-2) 64%, transparent);
+      margin-top: 15px;
+      padding-top: 16px;
+    }
+
+    .experience-summary .summary-label {
+      color: var(--accent-2);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .experience-summary .summary-text {
+      color: color-mix(in srgb, var(--text) 76%, transparent);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.85;
+    }
+
+    .experience-summary .summary-text span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .scope-summary .summary-text {
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .scope-summary .summary-text span {
+      white-space: normal;
+    }
+
+    .about-layout {
+      grid-template-columns: minmax(240px, .72fr) minmax(0, 1fr);
+      gap: 80px;
+    }
+
+    .statement {
+      border-left: 4px solid var(--accent-2);
+      background: color-mix(in srgb, var(--paper) 72%, transparent);
+      max-width: 390px;
+      padding: 24px 26px;
+      font-family: var(--font-serif);
+      font-size: 15.5px;
+      line-height: 2.05;
+      box-shadow: none;
+    }
+
+    .about-layout .statement {
+      border-left-color: color-mix(in srgb, var(--accent-2) 64%, transparent);
+      opacity: .66;
+    }
+
+    .body-copy {
+      padding-top: 6px;
+      line-height: 2.15;
+    }
+
+    .body-copy p {
+      font-size: 15px;
+    }
+
+    .card-grid,
+    .skill-columns,
+    .service-grid,
+    .tools {
+      gap: 22px;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card-grid,
+    .skill-columns {
+      align-items: stretch;
+    }
+
+    .card,
+    .price-card,
+    .tool-group {
+      border-radius: 0;
+      border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
+      background: color-mix(in srgb, var(--paper) 72%, transparent);
+      box-shadow: none;
+      backdrop-filter: blur(10px);
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 190px;
+    }
+
+    .card-grid .card::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      left: -1px;
+      width: 3px;
+      background: color-mix(in srgb, var(--accent-2) 64%, transparent);
+      opacity: .66;
+    }
+
+    .skill-columns .card {
+      justify-content: flex-start;
+      min-height: auto;
+    }
+
+    .card-number,
+    .price-label {
+      color: var(--accent-2);
+      letter-spacing: .16em;
+    }
+
+    #results .card {
+      justify-content: flex-start;
+      min-height: 196px;
+      padding: 30px 26px 26px;
+    }
+
+    #results .card-number {
+      margin-bottom: 22px;
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    #results .card h3 {
+      margin-bottom: 12px;
+      font-size: 17px;
+      line-height: 1.42;
+    }
+
+    #results .result-value {
+      margin-bottom: 6px;
+      font-size: 28px;
+      line-height: 1.12;
+      white-space: nowrap;
+    }
+
+    #results .card p {
+      font-size: 12px;
+      line-height: 1.55;
+      max-width: none;
+      white-space: nowrap;
+    }
+
+    .result-value {
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+
+    .price-card {
+      min-height: 340px;
+      border-top: 3px solid color-mix(in srgb, var(--accent-2) 72%, transparent);
+    }
+
+    .service-grid .price-card:first-child {
+      border-top-color: rgba(118, 124, 126, .72);
+      background:
+        linear-gradient(145deg, rgba(118, 124, 126, .09), transparent 58%),
+        color-mix(in srgb, var(--paper) 82%, #eef1f0);
+    }
+
+    .price-card.featured {
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent-2) 11%, transparent), transparent 54%),
+        color-mix(in srgb, var(--paper) 80%, transparent);
+      border-color: color-mix(in srgb, var(--accent-2) 68%, transparent);
+      border-top-color: var(--accent);
+    }
+
+    .price-card.recommended {
+      position: relative;
+      border-color: color-mix(in srgb, var(--accent-2) 58%, var(--line));
+      background:
+        linear-gradient(145deg, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 56%),
+        color-mix(in srgb, var(--paper) 84%, transparent);
+      transform: translateY(-10px);
+    }
+
+    .price-card.recommended::before {
+      content: "継続相談におすすめ";
+      position: absolute;
+      top: -18px;
+      left: 22px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 18px;
+      background: #a64034;
+      color: #fff8ea;
+      font-family: var(--font-ja);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      animation: floatBadge 2.8s ease-in-out infinite;
+    }
+
+    .price-card.recommended::after {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 46px;
+      border-top: 9px solid #a64034;
+      border-right: 9px solid transparent;
+      animation: floatBadge 2.8s ease-in-out infinite;
+    }
+
+    @keyframes floatBadge {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .price-card.premium {
+      border-color: color-mix(in srgb, #b68a2e 70%, var(--line));
+      border-top-color: #b68a2e;
+      background:
+        linear-gradient(135deg, rgba(182, 138, 46, .18), transparent 58%),
+        color-mix(in srgb, var(--paper) 86%, transparent);
+    }
+
+    .price-card.premium .price-label,
+    .price-card.premium .price {
+      color: #8c641d;
+    }
+
+    .price-card:hover,
+    .price-card:focus-visible,
+    .price-card.is-active {
+      transform: translateY(-7px);
+      border-color: color-mix(in srgb, var(--accent) 62%, var(--line));
+      background:
+        linear-gradient(140deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent 58%),
+        color-mix(in srgb, var(--paper) 86%, transparent);
+      box-shadow: 0 24px 70px rgba(89, 48, 31, .14);
+    }
+
+    .price-card.recommended:hover,
+    .price-card.recommended:focus-visible,
+    .price-card.recommended.is-active {
+      transform: translateY(-14px);
+    }
+
+    .price-list li::before {
+      border-radius: 50%;
+      background: var(--accent-2);
+    }
+
+    .scope-table {
+      border: 0;
+      margin-top: 58px;
+      background: color-mix(in srgb, #6f8f7d 24%, var(--line));
+      box-shadow: none;
+    }
+
+    .scope-row > div {
+      background: color-mix(in srgb, var(--paper) 84%, #eef3ec);
+      color: color-mix(in srgb, var(--text) 76%, var(--quiet));
+    }
+
+    .scope-row.header > div {
+      background: color-mix(in srgb, #6f8f7d 24%, #eef3ec);
+      color: color-mix(in srgb, #446957 76%, var(--text));
+    }
+
+    .chip {
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--paper) 78%, transparent);
+    }
+
+    .contact-band {
+      background:
+        linear-gradient(90deg, rgba(23, 21, 16, .92), rgba(31, 41, 44, .82)),
+        url("assets/suminagashi-washi.png") center / cover;
+      color: #fff8ea;
+    }
+
+    .contact-band .eyebrow,
+    .contact-band p {
+      color: rgba(255, 248, 234, .78);
+    }
+
+    .contact-band .eyebrow::before {
+      height: 2px;
+      background: rgba(255, 248, 234, .48);
+    }
+
+    .footer-note {
+      border-radius: 0;
+      border-color: rgba(255, 248, 234, .24);
+      color: rgba(255, 248, 234, .74);
+      background: rgba(255, 248, 234, .06);
+      backdrop-filter: blur(12px);
+    }
+
+    [data-theme="ink"] body,
+    body[data-theme="ink"] {
+      --hero-overlay: linear-gradient(90deg, rgba(7, 15, 18, .95), rgba(7, 15, 18, .76) 48%, rgba(7, 15, 18, .9));
+      --hero-heading: #f4fbf7;
+      --hero-copy-color: rgba(244, 251, 247, .84);
+      --hero-eyebrow-color: #8bd0c1;
+      --hero-profile-bg: rgba(13, 24, 27, .86);
+      --hero-metric-bg: rgba(244, 251, 247, .035);
+      --hero-profile-muted: rgba(244, 251, 247, .68);
+      --hero-profile-line: rgba(244, 251, 247, .26);
+      background:
+        linear-gradient(90deg, rgba(10, 17, 20, .92), rgba(10, 17, 20, .7) 42%, rgba(10, 17, 20, .88)),
+        url("assets/suminagashi-washi.png") center top / cover fixed,
+        var(--bg);
+    }
+
+    body[data-theme="dark"] {
+      --hero-overlay: linear-gradient(90deg, rgba(15, 14, 12, .95), rgba(15, 14, 12, .76) 48%, rgba(15, 14, 12, .9));
+      --hero-heading: #fff8ea;
+      --hero-copy-color: rgba(255, 248, 234, .84);
+      --hero-eyebrow-color: #d6bd77;
+      --hero-profile-bg: rgba(30, 29, 25, .88);
+      --hero-metric-bg: rgba(255, 248, 234, .04);
+      --hero-profile-muted: rgba(255, 248, 234, .66);
+      --hero-profile-line: rgba(255, 248, 234, .27);
+      background:
+        linear-gradient(90deg, rgba(16, 16, 14, .9), rgba(16, 16, 14, .68) 42%, rgba(16, 16, 14, .88)),
+        url("assets/suminagashi-washi.png") center top / cover fixed,
+        var(--bg);
+    }
+
+    body[data-theme="mono"] {
+      background:
+        linear-gradient(90deg, rgba(247, 247, 244, .94), rgba(247, 247, 244, .78)),
+        url("assets/suminagashi-washi.png") center top / cover fixed,
+        var(--bg);
+    }
+
+    @media (max-width: 900px) {
+      .section-head::before {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: clamp(27px, 8vw, 34px);
+        line-height: 1.34;
+      }
+
+      .hero-title-line {
+        white-space: normal;
+      }
+
+      .desktop-break {
+        display: none;
+      }
+
+      .mobile-space {
+        display: inline;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      * {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      body {
+        background:
+          linear-gradient(90deg, rgba(238, 230, 215, .88), rgba(246, 241, 230, .72) 38%, rgba(246, 241, 230, .88)),
+          url("assets/suminagashi-washi.png") center top / cover fixed,
+          var(--bg) !important;
+        color: var(--text) !important;
+        font-size: 11pt;
+      }
+
+      main,
+      .section,
+      .section-inner {
+        width: 100% !important;
+        max-width: none !important;
+        overflow: visible !important;
+      }
+
+      .site-header,
+      .hero-actions,
+      .print-button,
+      .hero::before,
+      .hero::after,
+      .section::before {
+        display: none !important;
+      }
+
+      .section {
+        border-bottom: 0;
+        padding: 18mm 16mm;
+        break-inside: auto;
+      }
+
+      .hero {
+        min-height: 100vh;
+        padding-top: 20mm;
+        padding-bottom: 20mm;
+        align-items: start;
+        background:
+          var(--hero-overlay),
+          url("assets/suminagashi-washi.png") center top / cover fixed,
+          var(--bg) !important;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .86fr);
+        gap: 9mm;
+        align-items: start;
+      }
+
+      .hero-grid > *,
+      .profile-panel,
+      .metric,
+      .section-head > *,
+      .about-layout > *,
+      .contact-layout > * {
+        min-width: 0;
+      }
+
+      h1 {
+        font-size: 23pt;
+        line-height: 1.24;
+        max-width: 100%;
+      }
+
+      .hero-title-line {
+        white-space: normal;
+      }
+
+      .lead {
+        font-size: 9.3pt;
+        line-height: 1.75;
+      }
+
+      .profile-panel {
+        padding: 7mm;
+      }
+
+      .profile-name strong {
+        font-size: 21pt;
+      }
+
+      .metric-list {
+        gap: 3mm;
+      }
+
+      .metric {
+        min-height: 22mm;
+        padding: 3.5mm;
+      }
+
+      .metric dt {
+        font-size: 6.8pt;
+        line-height: 1.35;
+      }
+
+      .metric dd {
+        font-size: 17pt;
+        white-space: nowrap;
+      }
+
+      .experience-summary .summary-text {
+        font-size: 10.2pt;
+        line-height: 1.7;
+      }
+
+      .experience-summary .summary-text span {
+        white-space: normal;
+      }
+
+      .statement {
+        max-width: 100%;
+        font-size: 11.5pt;
+        line-height: 1.9;
+        padding: 6mm 7mm;
+      }
+
+      .body-copy p {
+        font-size: 9.4pt;
+        line-height: 1.9;
+      }
+
+      .section-head,
+      .about-layout,
+      .contact-layout {
+        grid-template-columns: minmax(0, .78fr) minmax(0, 1fr);
+        gap: 8mm;
+      }
+
+      .section-head > p {
+        padding-top: 0;
+      }
+
+      .card-grid,
+      .skill-columns,
+      .tools {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .scope-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .card,
+      .price-card,
+      .tool-group,
+      .profile-panel,
+      .statement {
+        box-shadow: none;
+        background: color-mix(in srgb, var(--paper) 78%, transparent) !important;
+        border-color: color-mix(in srgb, var(--text) 18%, transparent);
+      }
+
+      .contact-band {
+        background:
+          linear-gradient(90deg, rgba(23, 21, 16, .92), rgba(31, 41, 44, .82)),
+          url("assets/suminagashi-washi.png") center / cover !important;
+        color: #fff8ea !important;
+      }
+    }
+  </style>
+</head>
+<body data-theme="paper">
+  <header class="site-header">
+    <nav class="nav" aria-label="主要ナビゲーション">
+      <a class="brand" href="#top" aria-label="ページ先頭へ">
+        <span class="brand-mark">T</span>
+        <span>Takahiro Portfolio</span>
+      </a>
+      <div class="nav-actions">
+        <div class="nav-links" aria-label="ページ内リンク">
+          <a href="#about">About</a>
+          <a href="#results">Results</a>
+          <a href="#skills">Skills</a>
+          <a href="#tools">Tools</a>
+          <a href="#services">Plans</a>
+        </div>
+        <label class="theme-control" for="themeSelect">
+          Palette
+          <select id="themeSelect" aria-label="配色テーマを選択">
+            <option value="paper" selected>Paper</option>
+            <option value="ink">Ink</option>
+            <option value="dark">Black</option>
+            <option value="mono">Mono</option>
+          </select>
+        </label>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="section hero">
+      <div class="section-inner hero-grid">
+        <div>
+          <p class="eyebrow">Web Marketing / SEO / Data</p>
+          <h1>
+            <span class="hero-title-line">戦略立案から改善運用まで</span>
+            <span class="hero-title-line">SEO・データ分析で伴走する</span>
+            <span class="hero-title-line">Webマーケター</span>
+          </h1>
+          <p class="lead hero-copy">Webマーケティング、SEO、広告・メディア運用、データ分析、ディレクター・PMまでを横断し、戦略の整理～提案、改善運用・データ分析まで伴走します。机上の提案で終わらせず、現場で動く施策に落とし込み、KGI・KPI改善につながるPDCAを回すことを重視しております。</p>
+          <div class="hero-actions">
+            <a class="button secondary" href="#results">実績を見る</a>
+            <a class="button primary" href="#services">料金目安を見る</a>
+          </div>
+        </div>
+
+        <aside class="profile-panel" aria-label="プロフィール概要">
+          <div class="profile-name">
+            <strong>Performance</strong>
+            <span>Metrics</span>
+          </div>
+          <dl class="metric-list">
+            <div class="metric">
+              <dt>Webマーケ / PM</dt>
+              <dd>7年+</dd>
+            </div>
+            <div class="metric">
+              <dt>SEO / データ分析 / 計測</dt>
+              <dd>6年+</dd>
+            </div>
+            <div class="metric">
+              <dt>チームマネジメント</dt>
+              <dd>10名+</dd>
+            </div>
+            <div class="metric">
+              <dt>検索KW 1～3位獲得</dt>
+              <dd>最大163個</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">About</p>
+            <h2>自己紹介</h2>
+          </div>
+          <p class="experience-summary">
+            <span class="summary-label">Summary</span>
+            <span class="summary-text">
+              <span>Webマーケ・ディレクター職7年以上 / SEO領域6年以上 / WEB広告運用4年以上</span>
+              <span>データアナリスト6年以上 / 数値計測基盤の構築5年以上</span>
+            </span>
+          </p>
+        </div>
+        <div class="about-layout">
+          <p class="statement">SEOやデータ分析を軸に、サイト流入拡大、CVR改善、広告運用・CPA削減などまで、一貫して担当・提案できるWebディレクター / マーケターです。</p>
+          <div class="body-copy">
+            <p>フロントエンドからバックエンドまでの基本的な構造・仕組みを理解し、GA4やサーチコンソール、BigQuery、Ahrefsなどを用いたデータ分析から、GTM設計・実装、Looker Studio設定など数値計測基盤の構築まで対応可能です。</p>
+            <p>コンテンツ戦略、SEO設計、広告・メディア運営、チームマネジメントまでを横断し、戦略立案から実行、改善までを現実的な進行に落とし込みます。Slack、Chatwork、Notion、Google Workspaceなどを使った非同期連携にも慣れているので、関係者間の認識をそろえながら、施策の実行まで着実に進められます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Achievements</p>
+            <h2>主な実績・成果</h2>
+          </div>
+          <p class="experience-summary scope-summary">
+            <span class="summary-label">Summary</span>
+            <span class="summary-text">
+              <span>ポータルサイト・求人サイト・店舗集客領域を中心に、ナイトレジャー領域を含む幅広いWeb施策を支援。コンテンツSEO・データベース型SEO・ローカルSEOに加え、データ分析や広告運用まで、事業特性に合わせて設計・改善提案します。</span>
+            </span>
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <span class="card-number">01</span>
+            <h3>自然検索流入を大幅増加</h3>
+            <div class="result-value">0 ⇨ 72,000</div>
+            <p>※新規Webサイトで1カ月のセッション数</p>
+          </article>
+          <article class="card">
+            <span class="card-number">02</span>
+            <h3>売上・CVRの改善</h3>
+            <div class="result-value">売上 2.35倍</div>
+            <p>※CVR：3.13% ⇨ 6.85%に改善し、CV数も約2.19倍を達成</p>
+          </article>
+          <article class="card">
+            <span class="card-number">03</span>
+            <h3>広告CPAを大幅改善</h3>
+            <div class="result-value">1,098 ⇨ 465円</div>
+            <p>※Google広告でのCPA改善（CV数も約2.38倍を達成）</p>
+          </article>
+          <article class="card">
+            <span class="card-number">04</span>
+            <h3>メディアPVを大幅改善</h3>
+            <div class="result-value">2,300 ⇨ 89,000</div>
+            <p>※既存Webサイトで1カ月のPV数（コンテンツSEO）</p>
+          </article>
+          <article class="card">
+            <span class="card-number">05</span>
+            <h3>チームの稼働率・生産性を向上</h3>
+            <div class="result-value">生成AI / BIツールの導入</div>
+            <p>※ClaudeやLooker Studioなどを導入し業務効率を改善</p>
+          </article>
+          <article class="card">
+            <span class="card-number">06</span>
+            <h3>データ基盤コストの改善</h3>
+            <div class="result-value">約23万円 ⇨ 約11万円</div>
+            <p>※BigQuery・SQL最適化、SEOツール見直しなどを提案</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Core Skills</p>
+            <h2>対応領域</h2>
+          </div>
+          <p class="experience-summary scope-summary">
+            <span class="summary-label">Summary</span>
+            <span class="summary-text">
+              <span>サイトの現状や数値から課題を見つけ、改善施策に落とし込むことを得意としております。テクニカルSEO、コンテンツ戦略、GA4・GTM、要件定義を強みに、分析だけで終わらせず、施策公開後も数値を見ながら検証・改善を重ね、成果につながる運用まで支援します。</span>
+            </span>
+          </p>
+        </div>
+        <div class="skill-columns">
+          <article class="card">
+            <span class="card-number">01</span>
+            <h3>Webマーケティング戦略 & SEO</h3>
+            <div class="skill-row"><span>SEO戦略 / 施策設計 <b>91</b></span><div class="bar"><i style="width:91%"></i></div></div>
+            <div class="skill-row"><span>テクニカルSEO <b>86</b></span><div class="bar"><i style="width:86%"></i></div></div>
+            <div class="skill-row"><span>コンテンツ戦略 / 制作 <b>80</b></span><div class="bar"><i style="width:80%"></i></div></div>
+            <div class="skill-row"><span>ローカルSEO <b>72</b></span><div class="bar"><i style="width:72%"></i></div></div>
+          </article>
+          <article class="card">
+            <span class="card-number">02</span>
+            <h3>データ分析 & 計測</h3>
+            <div class="skill-row"><span>GA4 / Search Console <b>90</b></span><div class="bar"><i style="width:90%"></i></div></div>
+            <div class="skill-row"><span>GTM / Looker Studio <b>84</b></span><div class="bar"><i style="width:84%"></i></div></div>
+            <div class="skill-row"><span>CVR改善 / 導線設計 <b>78</b></span><div class="bar"><i style="width:78%"></i></div></div>
+            <div class="skill-row"><span>BigQuery / SQL <b>66</b></span><div class="bar"><i style="width:66%"></i></div></div>
+          </article>
+          <article class="card">
+            <span class="card-number">03</span>
+            <h3>PM / 組織統括</h3>
+            <div class="skill-row"><span>要件定義 / ブリッジング <b>90</b></span><div class="bar"><i style="width:90%"></i></div></div>
+            <div class="skill-row"><span>進行管理 / 課題解決 <b>85</b></span><div class="bar"><i style="width:85%"></i></div></div>
+            <div class="skill-row"><span>チームディレクション <b>82</b></span><div class="bar"><i style="width:82%"></i></div></div>
+            <div class="skill-row"><span>メンバー育成 / レビュー <b>72</b></span><div class="bar"><i style="width:72%"></i></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Tools</p>
+            <h2>使用可能ツール・スキル</h2>
+          </div>
+          <p class="experience-summary scope-summary">
+            <span class="summary-label">Summary</span>
+            <span class="summary-text">
+              <span>これまで多様な現場でツールやサービスを実務活用してきた経験をもとに、各業界や体制に合わせた支援・活用が可能です。すでにお使いのツールがある場合も、運用状況を確認しながら、より成果に繋がる活用方法を提案させていただきます。</span>
+            </span>
+          </p>
+        </div>
+        <div class="tools">
+          <div class="tool-group">
+            <h3>データ分析・計測基盤</h3>
+            <div class="chips">
+              <span class="chip">GA4</span><span class="chip">GSC</span><span class="chip">GTM</span><span class="chip">BigQuery SQL</span><span class="chip">Looker Studio</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <h3>SEOツール・サービス</h3>
+            <div class="chips">
+              <span class="chip">Ahrefs</span><span class="chip">SEMrush</span><span class="chip">MIERUCA</span><span class="chip">Screaming Frog</span><span class="chip">KWプランナー</span><span class="chip">Clarity</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <h3>AI / 業務効率化</h3>
+            <div class="chips">
+              <span class="chip">ChatGPT</span><span class="chip">Gemini</span><span class="chip">Claude</span><span class="chip">Codex</span><span class="chip">NotebookLM</span><span class="chip">Notion AI</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <h3>広告・集客</h3>
+            <div class="chips">
+              <span class="chip">Google広告</span><span class="chip">Facebook広告</span><span class="chip">YouTube広告</span><span class="chip">X広告</span><span class="chip">純広告</span><span class="chip">HubSpot</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <h3>制作・CMS・動画編集</h3>
+            <div class="chips">
+              <span class="chip">WordPress</span><span class="chip">Canva</span><span class="chip">Filmora</span><span class="chip">Google Slides</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <h3>コミュニケーションツール</h3>
+            <div class="chips">
+              <span class="chip">Slack</span><span class="chip">Chatwork</span><span class="chip">Notion</span><span class="chip">Google Workspace</span><span class="chip">Zoom</span><span class="chip">Discord</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Support Plans</p>
+            <h2>料金目安・支援プラン</h2>
+          </div>
+          <p class="experience-summary scope-summary service-summary">
+            <span class="summary-label">Summary</span>
+            <span class="summary-text">
+              <span>壁打ち相談から実務伴走まで、必要な関与度に合わせて選べる3つのプランです。マーケティングPMプランは月56〜72時間を目安に、週2のリモート出勤での対応が可能です。</span>
+            </span>
+          </p>
+        </div>
+        <div class="service-grid">
+          <article class="price-card" tabindex="0">
+            <span class="price-label">Light</span>
+            <h3>ライト相談プラン</h3>
+            <div class="price">月4〜6万円</div>
+            <p>Webマーケ、SEO施策、GA4 / GSC、広告運用、AI活用などの方向性を相談できるライトな壁打ちプランです。</p>
+            <ul class="price-list">
+              <li>Zoom MT 60分（月1回 ）</li>
+              <li>チャット相談（平日10:00〜20:00｜随時やりとり）</li>
+              <li>SEO / データ分析 / 広告運用 / AI活用の壁打ち・相談</li>
+            </ul>
+            <p class="price-note">※可能な限り早めの返信を心がけておりますが、状況により翌営業日以降のご返信となる場合があります。</p>
+          </article>
+          <article class="price-card recommended" tabindex="0">
+            <span class="price-label">Advisor</span>
+            <h3>マーケティング顧問プラン</h3>
+            <div class="price">月8〜15万円</div>
+            <p>より詳細な改善施策提案や優先度整理から、SEO・広告運用・データ分析まわりのレビュー／フィードバックまで対応する顧問プランです。</p>
+            <ul class="price-list">
+              <li>Zoom MT 60分（月4回）</li>
+              <li>チャット相談（平日10:00〜20:00｜随時やりとり）</li>
+              <li>ライトプランの内容 ＋ GTM設計・GA4探索レポート作成・GSCエラー調査・BigQuery／SQLなど軽微なデータ確認・分析に対応</li>
+            </ul>
+            <p class="price-note">※可能な限り早めの返信を心がけておりますが、状況により翌営業日以降のご返信となる場合があります。</p>
+          </article>
+          <article class="price-card featured premium" tabindex="0">
+            <span class="price-label">Marketing PM</span>
+            <h3>マーケティングPMプラン</h3>
+            <div class="price">月32〜42万円</div>
+            <p>サイト・データ分析を起点に、SEO施策提案、広告運用、GTM設計、制作ディレクション、進行管理まで一貫して支援します。戦略設計だけでなく、実務側にも入りながら、改善施策の提案～実行まで伴走します。</p>
+            <ul class="price-list">
+              <li>週2日リモート稼働（1日8時間／10:00～19:00／準委任契約）</li>
+              <li>貴社業務時間に併せて稼働可（随時ZOOM MT 可能）</li>
+              <li>チャット相談（稼働時間中 随時やりとり）</li>
+              <li>データ分析を起点に、課題発見・施策提案・ツール活用支援・実行推進まで伴走</li>
+            </ul>
+            <p class="price-note">※課題の難易度や対応範囲、稼働時間などにより調整させていただきます（出勤曜日・時間は調整可）</p>
+          </article>
+        </div>
+        <div class="scope-table" aria-label="支援範囲の比較">
+          <div class="scope-row header">
+            <div>Scope</div>
+            <div>Light</div>
+            <div>Advisor</div>
+            <div>Marketing PM</div>
+          </div>
+          <div class="scope-row">
+            <div><strong>支援スタイル</strong></div>
+            <div>月1回の壁打ち＋随時相談</div>
+            <div>月4回MT＋レビュー／レクチャー支援</div>
+            <div>週2日目安で実務伴走</div>
+          </div>
+          <div class="scope-row">
+            <div><strong>向いている課題</strong></div>
+            <div>方向性確認・軽い相談・施策の壁打ち</div>
+            <div>改善施策の整理／優先度付け／レビュー／講師など</div>
+            <div>PM・制作進行／詳細分析／改善運用まで任せたい</div>
+          </div>
+          <div class="scope-row">
+            <div><strong>対応範囲</strong></div>
+            <div>SEO／広告／GA4・GSC／AI活用の相談</div>
+            <div>SEO／広告／数値計測環境／GTM／簡易分析の確認・レクチャー</div>
+            <div>戦略整理／詳細分析／SEO／広告／制作ディレクション・進行管理</div>
+          </div>
+          <div class="scope-row">
+            <div><strong>主なアウトプット</strong></div>
+            <div>相談メモ／改善の方向性／ツール活用助言</div>
+            <div>改善案／レビューコメント／簡易分析／GTM・SQL操作レクチャー</div>
+            <div>課題整理／施策設計／改善ロードマップ／実行推進</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      </main>
+
+  <footer class="section contact-band">
+    <div class="section-inner contact-layout">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>課題整理からぜひご相談ください！</h2>
+        <p>重視しているのは、施策の妥当性を見極めたうえで、「誰と、どう進めるか」まで考えること。目先の数字だけではなく、事業の背景やチームの想いまで理解したうえで、まずは丁寧に聞くことから始めていきます。課題の優先度を見極め、実行と改善を重ねながら、成果につながる打ち手を一緒に作らせていただきたいです！</p>
+      </div>
+      <div class="footer-note">
+        <strong>連絡先</strong>
+        <dl class="contact-items">
+          <div class="contact-item">
+            <dt>Mail</dt>
+            <dd><a href="mailto:taka.work.biz11@gmail.com">taka.work.biz11@gmail.com</a></dd>
+          </div>
+          <div class="contact-item">
+            <dt>Chatwork ID</dt>
+            <dd>taka_work_biz11</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const select = document.querySelector("#themeSelect");
+    const defaultTheme = "paper";
+    const themeStorageKey = "portfolio-theme-v3";
+    const savedTheme = localStorage.getItem(themeStorageKey);
+    if (savedTheme) {
+      document.body.dataset.theme = savedTheme;
+      select.value = savedTheme;
+    } else {
+      document.body.dataset.theme = defaultTheme;
+      select.value = defaultTheme;
+    }
+
+    select.addEventListener("change", (event) => {
+      document.body.dataset.theme = event.target.value;
+      localStorage.setItem(themeStorageKey, event.target.value);
+    });
+
+    document.querySelectorAll(".price-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".price-card.is-active").forEach((activeCard) => {
+          activeCard.classList.remove("is-active");
+        });
+        card.classList.add("is-active");
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          card.click();
+        }
+      });
+    });
+
+    const header = document.querySelector(".site-header");
+    const aboutSection = document.querySelector("#about");
+
+    const updateHeaderStickiness = () => {
+      if (!header || !aboutSection) return;
+      const triggerPoint = aboutSection.offsetTop - header.offsetHeight;
+      header.classList.toggle("is-stuck", window.scrollY >= triggerPoint);
+    };
+
+    window.addEventListener("scroll", updateHeaderStickiness, { passive: true });
+    window.addEventListener("resize", updateHeaderStickiness);
+    updateHeaderStickiness();
+
+    const easeInOutCubic = (progress) => {
+      return progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+    };
+
+    const animateScrollTo = (targetY) => {
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const duration = Math.min(950, Math.max(520, Math.abs(distance) * 0.55));
+      const startTime = performance.now();
+
+      const step = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (event) => {
+        const targetId = anchor.getAttribute("href");
+        if (!targetId || targetId === "#") return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        event.preventDefault();
+        const headerOffset = header ? header.offsetHeight + 18 : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+        animateScrollTo(Math.max(targetPosition, 0));
+        history.pushState(null, "", targetId);
+      });
+    });
+
+    const printButton = document.querySelector("#printButton");
+    printButton?.addEventListener("click", () => {
+      window.print();
+    });
+  </script>
+</body>
+</html>
