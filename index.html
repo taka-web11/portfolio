@@ -3048,8 +3048,13 @@
         event.preventDefault();
         const headerOffset = header ? header.offsetHeight + 18 : 0;
         const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+        const nextY = Math.max(targetPosition, 0);
 
-        animateScrollTo(Math.max(targetPosition, 0));
+        if (window.matchMedia("(max-width: 760px)").matches) {
+          window.scrollTo({ top: nextY, left: 0, behavior: "auto" });
+        } else {
+          animateScrollTo(nextY);
+        }
         history.pushState(null, "", targetId);
         closeMenu();
       });
